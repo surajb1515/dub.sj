@@ -47,7 +47,7 @@ export default function MyForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       destinationUrl: '',
-      preferedUrl: ''
+      preferedUrl: 'https://dubsj.vercel.app/short'
     }
   })
 

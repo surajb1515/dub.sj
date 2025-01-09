@@ -38,7 +38,7 @@ export default function RootLayout({
           <ConvexClientProvider>
             {children}
             <Toaster position="top-center" />
-            <ScreenSize />
+            {/* <ScreenSize /> */}
           </ConvexClientProvider>
         </body>
       </html>
