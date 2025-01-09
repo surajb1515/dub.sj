@@ -14,6 +14,7 @@ import { useMediaQuery } from 'react-responsive';
 import { toast } from "sonner";
 import CopyButton from "./Copy-Button";
 import { Card, CardContent } from "./ui/card";
+import Link from "next/link";
 
 
 
@@ -68,13 +69,39 @@ export default function SinglePageComponent({
           <div className="flex items-center space-x-4">
 
             <div className="flex-grow min-w-0 space-y-1"> {/* Added min-w-0 to prevent text overflow */}
-              <div className="flex items-center space-x-2">
-                <h4 className="text-xs sm:text-sm font-medium text-neutral-900 truncate">
+              <div className="flex items-center">
+                {/* For sm and larger screens */}
+                <Link
+                  href={link.shortUrl}
+                  className="hidden sm:inline text-xs sm:text-sm font-medium text-neutral-900 truncate hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {link.shortUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
-                </h4>
+                </Link>
+
+                {/* For screens smaller than sm */}
+                <span className="text-xs sm:text-sm font-medium text-neutral-900 truncate sm:hidden">
+                  {link.shortUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
+                </span>
+
               </div>
               <p className="text-xs sm:text-sm text-neutral-500 truncate">
-                {link.destinationUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
+                {/* For sm and larger screens */}
+                <Link
+                  href={link.destinationUrl}
+                  className="hidden sm:inline text-xs sm:text-sm font-medium text-neutral-500 truncate hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.destinationUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
+                </Link>
+
+                {/* For screens smaller than sm */}
+                <span className="text-xs sm:text-sm font-medium text-neutral-500 truncate sm:hidden">
+                  {link.destinationUrl.replace(/^(https?:\/\/)?(www\.)?/, "")}
+                </span>
+
               </p>
             </div>
             <div className="hidden sm:flex items-center space-x-2 shrink-0"> {/* Added shrink-0 to prevent shrinking */}
