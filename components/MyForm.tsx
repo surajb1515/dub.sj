@@ -107,7 +107,7 @@ export default function MyForm() {
             <FormItem className="space-y-0">
               <FormLabel>Prefered Short Url</FormLabel>
               <FormControl>
-                <Input placeholder="https://localhost/short-word" className="bg-background" {...field} />
+                <Input placeholder="https://dubsj.vercel.app/short-word" className="bg-background" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
