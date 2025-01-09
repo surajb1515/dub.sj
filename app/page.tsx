@@ -30,10 +30,10 @@ export default async function Home() {
         <div className="mt-40 mx-auto px-8">
           <div className="space-y-6">
             <h1 className="text-2xl py-2 font-bold tracking-tighter text-center text-transparent sm:text-5xl md:text-6xl xl:text-7xl whitespace-nowrap bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 bg-clip-text dark:bg-gradient-to-r dark:from-gray-400 via dark:bg-neutral-400">
-              Hey, Welcome to Dub.sh
+              Hey, Welcome to Dubsj
             </h1>
             <p className="mx-auto text-sm h-fit text-md w-fit text-muted-foreground text-center md:text-xl">
-              Dub.sh is the open-source link management infrastructure for modern marketing teams
+              Dubsj is the open-source application for managing your favorite links.
             </p>
             <div className="flex justify-center pt-2">
               <SignedOut>
@@ -66,10 +66,10 @@ export default async function Home() {
       /> */}
         <div className=" relativez-10 mx-auto space-y-3 max-w-4xl px-8">
           <h1 className="text-2xl py-2 font-bold tracking-tighter text-center text-transparent sm:text-5xl md:text-6xl xl:text-7xl whitespace-nowrap bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 bg-clip-text dark:bg-gradient-to-r dark:from-gray-400 via dark:bg-neutral-400">
-            Hey, Welcome to Dub.sh
+            Hey, Welcome to Dubsj
           </h1>
           <p className=" mx-auto text-sm h-fit text-md w-fit text-muted-foreground text-center md:text-xl">
-            Dub.sh is the open-source link management infrastructure for modern marketing teams
+            Dubsj is the open-source application for managing your favorite links.
           </p>
           <div className="pt-3">
             <MyForm />
