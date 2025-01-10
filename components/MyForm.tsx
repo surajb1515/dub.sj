@@ -21,7 +21,7 @@ import * as z from "zod"
 
 
 
-const baseUrl = process.env.NEXT_PUBLIC_SURAJ_URL as string
+const baseUrl = process.env.NEXT_PUBLIC_SURAJ_URL as string;
 
 const formSchema = z.object({
   destinationUrl: z.string().url().nonempty("Destination URL must not be empty."),
@@ -31,10 +31,11 @@ const formSchema = z.object({
     .nonempty("Preferred URL must not be empty.")
     .refine((val) => val.startsWith(baseUrl), {
       message: `Preferred URL must start with "${baseUrl}".`,
+    })
+    .refine((val) => val !== baseUrl, {
+      message: `Preferred URL cannot be exactly equal to "${baseUrl}".`,
     }),
 });
-
-
 
 
 export default function MyForm() {
