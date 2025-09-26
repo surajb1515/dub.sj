@@ -1,33 +1,18 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Zap, Code, Users, Link2, CheckCircle, Star, ArrowRight } from "lucide-react"
+import { Zap, Code, Shield, Link2, CheckCircle, Star, ArrowRight, Infinity, Crown, Sparkles } from "lucide-react"
+import { SignedOut, SignInButton } from "@clerk/nextjs"
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-}
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
 
-const scaleOnHover = {
-  whileHover: { scale: 1.05 },
-  whileTap: { scale: 0.95 },
-}
 
-export default function HomePageComponent() {
+
+export default function HomePage() {
   const [url, setUrl] = useState("")
 
   const features = [
@@ -35,16 +20,22 @@ export default function HomePageComponent() {
       icon: Zap,
       title: "Lightning Fast",
       description: "Instant URL shortening with global CDN for fastest redirects",
+      gradient: "from-yellow-400 to-orange-500",
+      bgColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
     },
     {
       icon: Code,
       title: "API Access",
       description: "Integrate with your applications using our comprehensive REST API",
+      gradient: "from-blue-400 to-purple-500",
+      bgColor: "bg-gradient-to-br from-blue-50 to-purple-50",
     },
     {
-      icon: Users,
-      title: "Team Collaboration",
-      description: "Share and manage links with your team members seamlessly",
+      icon: Shield,
+      title: "Security & Privacy",
+      description: "Enterprise-grade security with privacy-first approach and data protection",
+      gradient: "from-green-400 to-teal-500",
+      bgColor: "bg-gradient-to-br from-green-50 to-teal-50",
     },
   ]
 
@@ -63,12 +54,7 @@ export default function HomePageComponent() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto"
-      >
+      <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         <div className="flex items-center gap-2">
           <Link2 className="h-6 w-6" />
           <span className="text-xl font-bold">Dubsj</span>
@@ -87,45 +73,32 @@ export default function HomePageComponent() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost">Sign In</Button>
-          <Button className="bg-black text-white hover:bg-gray-800" asChild>
-            <a href="/dashboard">Get Started</a>
-          </Button>
+          <SignedOut>
+            <Button asChild>
+              <SignInButton />
+            </Button>
+          </SignedOut>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Hero Section */}
       <section className="px-6 py-20 max-w-7xl mx-auto text-center">
-        <motion.div {...fadeInUp}>
+        <div>
           <Badge variant="outline" className="mb-6">
             <Star className="h-3 w-3 mr-1" />
             Open Source URL Shortener
           </Badge>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          {...fadeInUp}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 text-balance"
-        >
-          Shorten Your Links with Ease
-        </motion.h1>
+        <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 text-balance">Shorten Your Links with Ease</h1>
 
-        <motion.p
-          {...fadeInUp}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-pretty"
-        >
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-pretty">
           Dubsj is the open-source application for managing your favorite links. Create short, memorable URLs with
           powerful analytics and customization options.
-        </motion.p>
+        </p>
 
         {/* URL Shortener Form */}
-        <motion.div
-          {...fadeInUp}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8"
-        >
+        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
           <Input
             type="url"
             placeholder="https://your-long-url.com"
@@ -133,96 +106,155 @@ export default function HomePageComponent() {
             onChange={(e) => setUrl(e.target.value)}
             className="flex-1"
           />
-          <motion.div {...scaleOnHover}>
-            <Button className="bg-black text-white hover:bg-gray-800 px-6" asChild>
+          <div>
+            {/* <Button className="bg-black text-white hover:bg-gray-800 px-6" asChild>
               <a href="/dashboard">
                 Shorten URL
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-            </Button>
-          </motion.div>
-        </motion.div>
+            </Button> */}
+
+            <SignedOut>
+              <Button asChild>
+                <SignInButton />
+              </Button>
+            </SignedOut>
+          </div>
+        </div>
 
         {/* Benefits */}
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className="flex flex-wrap justify-center gap-6 mb-16"
-        >
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
           {benefits.map((benefit, index) => (
-            <motion.div key={index} variants={fadeInUp} className="flex items-center gap-2 text-gray-600">
+            <div key={index} className="flex items-center gap-2 text-gray-600">
               <benefit.icon className="h-4 w-4 text-green-500" />
               <span>{benefit.text}</span>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* Features Section */}
       <section id="features" className="px-6 py-20 max-w-7xl mx-auto">
-        <motion.div {...fadeInUp} className="text-center mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features for Modern Link Management</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Everything you need to create, manage, and track your shortened URLs
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className="grid md:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <motion.div key={index} variants={fadeInUp}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="bg-gray-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                    <feature.icon className="h-6 w-6 text-gray-700" />
+            <div key={index}>
+              <Card
+                className={`h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${feature.bgColor} overflow-hidden relative group`}
+              >
+                <CardContent className="p-8 relative z-10">
+                  <div
+                    className={`bg-gradient-to-r ${feature.gradient} w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                  >
+                    <feature.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{feature.description}</p>
                 </CardContent>
+                {/* Floating decoration */}
+                <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Sparkles className="h-8 w-8 text-gray-400" />
+                </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
+      </section>
+
+      <section id="pricing" className="px-6 py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div>
+            <Badge variant="outline" className="mb-6 bg-white/50 backdrop-blur-sm">
+              <Crown className="h-3 w-3 mr-1" />
+              Simple Pricing
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Free Forever, No Strings Attached</h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+              Enjoy all premium features without any cost. Open source means open access for everyone.
+            </p>
+          </div>
+
+          <div className="relative">
+            <Card className="max-w-md mx-auto bg-white/80 backdrop-blur-sm border-2 border-gradient-to-r from-blue-400 to-purple-500 shadow-2xl overflow-hidden">
+              <CardContent className="p-8 text-center relative">
+                {/* Floating infinity symbol */}
+                <div className="absolute top-4 right-4">
+                  <Infinity className="h-6 w-6 text-blue-400 opacity-30" />
+                </div>
+
+                <div className="mb-6">
+                  <div className="text-6xl font-bold text-gray-900 mb-2">$0</div>
+                  <div className="text-gray-600">Forever & Always</div>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  {[
+                    "Unlimited URL shortening",
+                    "Advanced analytics",
+                    "Custom short domains",
+                    "API access",
+                    "No ads or tracking",
+                    "Open source transparency",
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg"
+                    asChild
+                  >
+                    <a href="/sign-in">
+                      Start Using Dubsj
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </section>
 
       {/* Stats Section */}
       <section className="px-6 py-20 bg-gray-50">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center"
-        >
+        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
           {stats.map((stat, index) => (
-            <motion.div key={index} variants={fadeInUp}>
+            <div key={index}>
               <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.value}</div>
               <div className="text-gray-600 text-lg">{stat.label}</div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* CTA Section */}
       <section className="px-6 py-20 max-w-4xl mx-auto text-center">
-        <motion.div {...fadeInUp}>
+        <div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-gray-600 mb-8">
             Join thousands of users who trust Dubsj for their link management needs
           </p>
-          <motion.div {...scaleOnHover}>
+          <div>
             <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-8" asChild>
-              <a href="/dashboard">
+              <a href="/sign-in">
                 Start Shortening URLs
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
