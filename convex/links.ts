@@ -6,7 +6,9 @@ import { mutation, query } from "./_generated/server"
 // createShortLink
 // deleteLink
 // getLinks
-
+// increaseVisitCnt
+// getLink
+// getAllLink
 
 
 

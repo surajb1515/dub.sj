@@ -1,4 +1,5 @@
 import AllLinksComponent from "@/components/All-links";
+import HomePageComponent from "@/components/HomePageMotion";
 import MyForm from "@/components/MyForm";
 import Navbar from "@/components/Navbar";
 import { Spinner } from "@/components/spinner";
@@ -26,7 +27,7 @@ export default async function Home() {
   if (!userId) {
     return (
       <>
-        <Navbar />
+        {/* <Navbar />
         <div className="mt-40 mx-auto px-8">
           <div className="space-y-6">
             <h1 className="text-2xl py-2 font-bold tracking-tighter text-center text-transparent sm:text-5xl md:text-6xl xl:text-7xl whitespace-nowrap bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 bg-clip-text dark:bg-gradient-to-r dark:from-gray-400 via dark:bg-neutral-400">
@@ -43,7 +44,9 @@ export default async function Home() {
               </SignedOut>
             </div>
           </div>
-        </div>
+        </div> */}
+
+        <HomePageComponent />
       </>
     );
   }

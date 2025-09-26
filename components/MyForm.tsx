@@ -38,11 +38,12 @@ const formSchema = z.object({
 });
 
 
+
+
 export default function MyForm() {
 
 
   const { userId } = useAuth();
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -63,8 +64,6 @@ export default function MyForm() {
 
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('values------------>', values)
-
 
     const linkId = await createShortLink({
       destinationUrl: values.destinationUrl,
@@ -72,13 +71,10 @@ export default function MyForm() {
       createdById: userInfo?._id as Id<"users">
     })
 
-
     if (linkId == null) {
       toast.error('Short Url already existed')
     }
-
     form.reset()
-
   }
 
 
