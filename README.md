@@ -16,6 +16,9 @@ pnpm dev
 bun dev
 ```
 
-![alt text](public/home-logout.png)
+![alt text](public/home-logout-1.png)
+![alt text](public/home-logout-2.png)
+![alt text](public/home-logout-3.png)
+![alt text](public/home-logout-4.png)
 ![alt text](public/signin.png)
 ![alt text](public/home-page.png)
