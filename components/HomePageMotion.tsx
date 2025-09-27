@@ -25,8 +25,8 @@ export default function HomePage() {
     },
     {
       icon: Code,
-      title: "API Access",
-      description: "Integrate with your applications using our comprehensive REST API",
+      title: "Convex-Powered Storage",
+      description: "URLs are securely stored and managed using Convex’s scalable, real-time database service.",
       gradient: "from-blue-400 to-purple-500",
       bgColor: "bg-gradient-to-br from-blue-50 to-purple-50",
     },
@@ -98,27 +98,27 @@ export default function HomePage() {
         </p>
 
         {/* URL Shortener Form */}
-        <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
           <Input
             type="url"
             placeholder="https://your-long-url.com"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="flex-1"
+            className="flex-1 py-1"
           />
           <div>
-            {/* <Button className="bg-black text-white hover:bg-gray-800 px-6" asChild>
-              <a href="/dashboard">
+            <Button className="bg-black text-white hover:bg-gray-800 px-6" asChild>
+              <a href="/sign-in">
                 Shorten URL
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-            </Button> */}
-
+            </Button>
+            {/* 
             <SignedOut>
               <Button asChild>
                 <SignInButton />
               </Button>
-            </SignedOut>
+            </SignedOut> */}
           </div>
         </div>
 
