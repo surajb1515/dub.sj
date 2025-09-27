@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Zap, Code, Shield, Link2, CheckCircle, Star, ArrowRight, Infinity, Crown, Sparkles } from "lucide-react"
 import { SignedOut, SignInButton } from "@clerk/nextjs"
+import Link from "next/link"
 
 
 
@@ -55,10 +56,12 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-        <div className="flex items-center gap-2">
-          <Link2 className="h-6 w-6" />
-          <span className="text-xl font-bold">Dubsj</span>
-        </div>
+        <Link href={'/'}>
+          <div className="flex items-center gap-2">
+            <Link2 className="h-6 w-6" />
+            <span className="text-xl font-bold">Dubsj</span>
+          </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
@@ -166,66 +169,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <section id="pricing" className="px-6 py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div>
-            <Badge variant="outline" className="mb-6 bg-white/50 backdrop-blur-sm">
-              <Crown className="h-3 w-3 mr-1" />
-              Simple Pricing
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Free Forever, No Strings Attached</h2>
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              Enjoy all premium features without any cost. Open source means open access for everyone.
-            </p>
-          </div>
-
-          <div className="relative">
-            <Card className="max-w-md mx-auto bg-white/80 backdrop-blur-sm border-2 border-gradient-to-r from-blue-400 to-purple-500 shadow-2xl overflow-hidden">
-              <CardContent className="p-8 text-center relative">
-                {/* Floating infinity symbol */}
-                <div className="absolute top-4 right-4">
-                  <Infinity className="h-6 w-6 text-blue-400 opacity-30" />
-                </div>
-
-                <div className="mb-6">
-                  <div className="text-6xl font-bold text-gray-900 mb-2">$0</div>
-                  <div className="text-gray-600">Forever & Always</div>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  {[
-                    "Unlimited URL shortening",
-                    "Advanced analytics",
-                    "Custom short domains",
-                    "No ads or tracking",
-                    "Open source transparency",
-                  ].map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div>
-                  <Button
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg"
-                    asChild
-                  >
-                    <a href="/sign-in">
-                      Start Using Dubsj
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
 
 
 
