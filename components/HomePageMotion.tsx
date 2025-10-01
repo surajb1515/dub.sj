@@ -131,7 +131,7 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen ">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         <Link href={'/'}>
@@ -251,7 +251,7 @@ export default function HomePage() {
 
 
       {/* About Section */}
-      <section id="about" className="px-6 py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
+      <section id="about" className="px-6 py-10 ">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-6 bg-white/50 backdrop-blur-sm">
@@ -342,7 +342,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="px-6 py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
+      <section id="pricing" className="px-6 py-10 ">
         <div className="max-w-4xl mx-auto text-center">
           <div>
             <Badge variant="outline" className="mb-6 bg-white/50 backdrop-blur-sm">
